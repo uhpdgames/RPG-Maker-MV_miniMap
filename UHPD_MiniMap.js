@@ -15,7 +15,7 @@
  * ============================================================================
  *
  * Check out my website:
- * www.uhpdgames
+ * https://www.facebook.com/Game2D-OutSchool-288240705135985
  * Contact: kenji.vn14 gmail.com || uhpdgames gmail.com
  *
  *=============================================================================*/
@@ -61,24 +61,4 @@
       }
     }
   };
-
-  /**
-
-   for (const ce of cacheNPC) {
-            $gameScreen.erasePicture(ce);
-          }
-   const EV = ($dataMap.events).filter(e => e !== null);
-   for (const ev of EV) {
-          if ((ev.meta).hasOwnProperty('mnNPC')) {
-            let xE = ev.x || 1;
-            let yE = ev.y || 1;
-            xE *= 6;
-            xE += 6;
-            yE *= 6;
-            yE += 6;
-            cacheNPC.push(ev.id);
-            $gameScreen.showPicture(ev.id, 'NPC', 1, xE, yE, 100, 100, 255, 0);
-          }
-        }
-   */
 })();
