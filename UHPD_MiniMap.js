@@ -53,7 +53,7 @@
   const miniMapOff = Number(parameters['SwitchMiniOff'] || 16);
   const keyBoard = String(parameters['KeyOnMiniMap'] || 'pageup');
   const listIgnore = eval(parameters['listIgnore'] || []);
-  Game_Interpreter.prototype.miniMap = function () {
+  const miniMap = () => {
     if (SceneManager._scene.constructor.name === "Scene_Map") {
       const GM = $gameMessage;
       const noBusy = !GM.isBusy() || !GM.isChoice() || !GM.isItemChoice() || !GM.isNumberInput();
@@ -71,7 +71,7 @@
         }
         if (Input.isTriggered(keyBoard)) {
           if (!showMiniMap) {
-            const mapId = Number(this._mapId);
+            const mapId = Number($gameMap.mapId());
             let filename = 'map%1'.format(mapId.padZero(3));
             if (listIgnore.indexOf(filename) < 0) {
               $gameSwitches.setValue(dotPlayer, true);
@@ -88,11 +88,20 @@
       }
     }
   };
+  Game_Interpreter.prototype.miniMap = function () {
+   return miniMap();
+  };
   const Alias_pluginCommand = Game_Interpreter.prototype.pluginCommand;
   Game_Interpreter.prototype.pluginCommand = function (command, args) {
     Alias_pluginCommand.call(this, command, args);
     if (command === 'miniMap') {
       this.miniMap();
     }
-  }
+  };
+  //automatic run on game
+  const Alias_Spriteset_Map_update = Spriteset_Map.prototype.update;
+  Spriteset_Map.prototype.update = function () {
+    Alias_Spriteset_Map_update.call(this);
+    miniMap();
+  };
 })();
