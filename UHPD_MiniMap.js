@@ -15,6 +15,11 @@
  * @default pageup
  * @type text
  *
+ * @param PicdotPlayer
+ * @desc The picture display as player,
+ * @default PlayerDot
+ * @type text
+ *
  * @param SwitchdotPlayer
  * @desc The switch turns on the dot by player
  * @default 10
@@ -50,6 +55,7 @@
 (() => {
   const parameters = PluginManager.parameters("UHPD_MiniMap");
   const dotPlayer = Number(parameters['SwitchdotPlayer'] || 10);
+  const imgPlayer = String(parameters['PicdotPlayer'] || 'PlayerDot');
   const miniMapOff = Number(parameters['SwitchMiniOff'] || 16);
   const keyBoard = String(parameters['KeyOnMiniMap'] || 'pageup');
   const listIgnore = eval(parameters['listIgnore'] || []);
@@ -67,7 +73,7 @@
           Xplayer += 6;
           Yplayer *= 6;
           Yplayer += 6;
-          $gameScreen.showPicture(4, 'PlayerDot', 1, Xplayer, Yplayer, 100, 100, 255, 4);
+          $gameScreen.showPicture(4, imgPlayer, 1, Xplayer, Yplayer, 100, 100, 255, 4);
         }
         if (Input.isTriggered(keyBoard)) {
           if (!showMiniMap) {
@@ -89,7 +95,7 @@
     }
   };
   Game_Interpreter.prototype.miniMap = function () {
-   return miniMap();
+    return miniMap();
   };
   const Alias_pluginCommand = Game_Interpreter.prototype.pluginCommand;
   Game_Interpreter.prototype.pluginCommand = function (command, args) {
