@@ -61,9 +61,7 @@
   const listIgnore = eval(parameters['listIgnore'] || []);
   const miniMap = () => {
     if (SceneManager._scene.constructor.name === "Scene_Map") {
-      const GM = $gameMessage;
-      const noBusy = !GM.isBusy() || !GM.isChoice() || !GM.isItemChoice() || !GM.isNumberInput();
-      if (noBusy) {
+      if (!$gameMessage.isBusy()) {
         const showMiniMap = $gameSwitches.value(miniMapOff) || false;
         const showPlayerDot = $gameSwitches.value(dotPlayer) || false;
         if (showPlayerDot) {
