@@ -52,14 +52,14 @@
  *
  *=============================================================================*/
 "use strict";
-(() => {
+(function () {
   const parameters = PluginManager.parameters("UHPD_MiniMap");
   const dotPlayer = Number(parameters['SwitchdotPlayer'] || 10);
   const imgPlayer = String(parameters['PicdotPlayer'] || 'PlayerDot');
   const miniMapOff = Number(parameters['SwitchMiniOff'] || 16);
   const keyBoard = String(parameters['KeyOnMiniMap'] || 'pageup');
   const listIgnore = eval(parameters['listIgnore'] || []);
-  const miniMap = () => {
+  const miniMap = function() {
     if (SceneManager._scene.constructor.name === "Scene_Map") {
       if (!$gameMessage.isBusy()) {
         const showMiniMap = $gameSwitches.value(miniMapOff) || false;
