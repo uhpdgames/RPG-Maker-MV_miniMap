@@ -1,14 +1,27 @@
 ﻿/*=============================================================================
- * UHPD Games
- * aka Ung Hoang Phi Dang
- * Mini Map plugin for RPG Maker MV
- * Version: 1.0
- * Free for commercial and non commercial use.
+// UHPD_MiniMap.js
+// ----------------------------------------------------------------------------
+// Copyright (c) 2018 UHPD Games
+// This software is released under the MIT License.
+// http://opensource.org/licenses/mit-license.php
+// ----------------------------------------------------------------------------
+// Version
+// 1.0.1 2018/24/11
+//       + Updated parameters
+//       + fix .isBusy();
+//       + downgrade ES6
+// 1.0.0 2018/09/11 Create UHPD_MiniMap.js
+// ----------------------------------------------------------------------------
+// [Page games]: http://uhpdgames.itch.io/
+// [Facebook]: https://www.facebook.com/Tactical-RPG-OutSchool-288240705135985/
+// [GitHub] : https://github.com/uhpdgames/
+// [Contact]: kenji.vn14@gmail.com || uhpdgames@gmail.com
  *=============================================================================*/
+
 /*:
  * @plugindesc Displays the mini map
  * @author Ung Hoang Phi Dang | https://uhpdgames.itch.io
- * @version: 1.01
+ * @version: 1.0.1
  *
  * @param Key toggle
  * @desc Press the `key` button to toggle minimap
@@ -39,7 +52,7 @@
  * ============================================================================
  * UHPD Games's Plugins
  * ============================================================================
- * TERMS: Free for commercial and non commercial use.
+ * TERMS: Free for commercial and non commercial use. Don't remove header
  * CREDITS: Ung Hoang Phi Dang or UHPD Games
  *
  * All Map's set by name data map and then pull it on folder picture
@@ -51,7 +64,6 @@
  * Check out my website:
  * https://www.facebook.com/Tactical-RPG-OutSchool-288240705135985/
  * Demo: https://uhpdgames.itch.io/out-school
- * Contact: kenji.vn14 gmail.com || uhpdgames gmail.com
  *
  *=============================================================================*/
 "use strict";
